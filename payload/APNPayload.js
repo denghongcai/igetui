@@ -47,10 +47,12 @@ APNPayload.prototype.getPayload = function () {
         if (this.category) {
             apsMap.category = this.category;
         }
+        
+        var tmpCustomMsg = this.customMsg;
         var tmp = {};
-        if (this.customMsg) {
-            Object.keys(this.customMsg).forEach(function (idx) {
-                tmp[idx] = this.customMsg[idx];
+        if (tmpCustomMsg) {
+            Object.keys(tmpCustomMsg).forEach(function (idx) {
+                tmp[idx] = tmpCustomMsg[idx];
             });
         }
         tmp.aps = apsMap;
