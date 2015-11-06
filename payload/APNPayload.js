@@ -51,7 +51,7 @@ APNPayload.prototype.getPayload = function () {
         if (this.customMsg) {
             Object.keys(this.customMsg).forEach(function (idx) {
                 tmp[idx] = this.customMsg[idx];
-            });
+            }.bind(this));
         }
         tmp.aps = apsMap;
         return JSON.stringify(tmp);
